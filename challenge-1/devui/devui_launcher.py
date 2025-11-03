@@ -40,7 +40,7 @@ def setup_logging():
 def check_environment():
     """Check if required environment variables are set"""
     required_vars = [
-        "AI_FOUNDRY_PROJECT_ENDPOINT",
+        "AI_FOUNDRY_ENDPOINT",
         "MODEL_DEPLOYMENT_NAME",
         "COSMOS_ENDPOINT",
         "COSMOS_KEY"
