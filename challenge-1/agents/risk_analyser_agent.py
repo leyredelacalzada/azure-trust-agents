@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 load_dotenv(override=True)
 
 # Configuration
-project_endpoint = os.environ.get("AI_FOUNDRY_PROJECT_ENDPOINT")
+project_endpoint = os.environ.get("AI_FOUNDRY_ENDPOINT")
 model_deployment_name = os.environ.get("MODEL_DEPLOYMENT_NAME")
 sc_connection_id = os.environ.get("AZURE_AI_CONNECTION_ID")
 
