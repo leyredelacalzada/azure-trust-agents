@@ -319,8 +319,8 @@ async def risk_analyzer_executor(
     
     try:
         # Configuration
-        project_endpoint = os.environ.get("AI_FOUNDRY_PROJECT_ENDPOINT")
-        model_deployment_name = os.environ.get("MODEL_DEPLOYMENT_NAME", "gpt-4o-mini")
+        project_endpoint = os.environ.get("AI_FOUNDRY_ENDPOINT")
+        model_deployment_name = os.environ.get("MODEL_DEPLOYMENT_NAME", "gpt-4.1-mini")
         RISK_ANALYSER_AGENT_ID = os.getenv("RISK_ANALYSER_AGENT_ID")
         
         if not RISK_ANALYSER_AGENT_ID:
@@ -408,8 +408,8 @@ async def compliance_report_executor(
     
     try:
         # Configuration
-        project_endpoint = os.environ.get("AI_FOUNDRY_PROJECT_ENDPOINT")
-        model_deployment_name = os.environ.get("MODEL_DEPLOYMENT_NAME", "gpt-4o-mini")
+        project_endpoint = os.environ.get("AI_FOUNDRY_ENDPOINT")
+        model_deployment_name = os.environ.get("MODEL_DEPLOYMENT_NAME", "gpt-4.1-mini")
         COMPLIANCE_REPORT_AGENT_ID = os.getenv("COMPLIANCE_REPORT_AGENT_ID")
         
         # If no specific compliance agent, we can generate the report locally
