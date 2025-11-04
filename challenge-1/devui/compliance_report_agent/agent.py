@@ -17,7 +17,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Configuration
-project_endpoint = os.environ.get("AI_FOUNDRY_PROJECT_ENDPOINT")
+project_endpoint = os.environ.get("AI_FOUNDRY_ENDPOINT")
 model_deployment_name = os.environ.get("MODEL_DEPLOYMENT_NAME")
 
 def parse_risk_analysis_result(
