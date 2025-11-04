@@ -356,7 +356,7 @@ async def risk_analyzer_executor(
     
     try:
         # Configuration
-        project_endpoint = os.environ.get("AI_FOUNDRY_PROJECT_ENDPOINT")
+        project_endpoint = os.environ.get("AI_FOUNDRY_ENDPOINT")
         model_deployment_name = os.environ.get("MODEL_DEPLOYMENT_NAME", "gpt-4o-mini")
         
         async with AzureCliCredential() as credential:
@@ -456,7 +456,7 @@ async def compliance_report_executor(
     
     try:
         # Configuration
-        project_endpoint = os.environ.get("AI_FOUNDRY_PROJECT_ENDPOINT")
+        project_endpoint = os.environ.get("AI_FOUNDRY_ENDPOINT")
         model_deployment_name = os.environ.get("MODEL_DEPLOYMENT_NAME", "gpt-4o-mini")
         
         # Generate audit report using local functions
