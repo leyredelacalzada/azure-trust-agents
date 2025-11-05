@@ -473,7 +473,10 @@ async def compliance_report_executor(
                 transaction_id=risk_response.transaction_id,
                 status="ERROR"
             )
-            await ctx.yield_output(error_result.to_readable_text())
+            # Print error to terminal as well
+            error_text = error_result.to_readable_text()
+            print(f"\n❌ WORKFLOW ERROR:\n{error_text}")
+            await ctx.yield_output(error_text)
             return
         
         # Convert audit report to response model
@@ -492,6 +495,14 @@ async def compliance_report_executor(
         
         # Return formatted text for DevUI display
         formatted_result = audit_response.to_readable_text()
+        
+        # ALSO print to terminal for visibility
+        print("\n" + "="*80)
+        print("🔍 FRAUD DETECTION WORKFLOW RESULT")
+        print("="*80)
+        print(formatted_result)
+        print("="*80)
+        
         await ctx.yield_output(formatted_result)
         
     except Exception as e:
@@ -502,7 +513,10 @@ async def compliance_report_executor(
             transaction_id=risk_response.transaction_id if risk_response else "Unknown",
             status="ERROR"
         )
-        await ctx.yield_output(error_result.to_readable_text())
+        # Print final error to terminal as well
+        error_text = error_result.to_readable_text()
+        print(f"\n❌ WORKFLOW FINAL ERROR:\n{error_text}")
+        await ctx.yield_output(error_text)
 
 # Build workflow with three executors
 workflow = (
