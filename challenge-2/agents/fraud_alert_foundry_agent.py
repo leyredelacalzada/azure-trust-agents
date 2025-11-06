@@ -16,7 +16,7 @@ from dotenv import load_dotenv
 
 load_dotenv(override=True)
 
-project_endpoint = os.environ.get("AI_FOUNDRY_PROJECT_ENDPOINT")
+project_endpoint = os.environ.get("AI_FOUNDRY_ENDPOINT")
 model_deployment_name = os.environ.get("MODEL_DEPLOYMENT_NAME")
 mcp_endpoint = os.environ.get("MCP_SERVER_ENDPOINT")
 mcp_subscription_key = os.environ.get("APIM_SUBSCRIPTION_KEY")
@@ -26,7 +26,12 @@ project_client = AIProjectClient(
     credential=DefaultAzureCredential(),
 )
 # Initialize agent MCP tool
-mcp_tool = < PLACEHOLDER FOR MCP TOOL >
+mcp_tool = McpTool(
+    server_label="fraudalertmcp", 
+    server_url=mcp_endpoint,
+)
+mcp_tool.update_headers("Ocp-Apim-Subscription-Key",
+                        mcp_subscription_key)
 
 # Create agent with MCP tool and process agent run
 with project_client:
